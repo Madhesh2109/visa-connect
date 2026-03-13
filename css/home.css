@@ -10,6 +10,8 @@ body {
     color: white;
 }
 
+/* =============================================================================================== */
+
 /* HERO */
 
 .hero {
@@ -19,6 +21,7 @@ body {
     justify-content: center;
     text-align: center;
     position: relative;
+    overflow: hidden;
     background-image: url("https://images.unsplash.com/photo-1502920917128-1aa500764cbd");
     background-size: cover;
     background-position: center;
@@ -32,11 +35,12 @@ body {
     height: 100%;
     background: linear-gradient(rgba(5, 5, 20, 0.85),
             rgba(5, 5, 30, 0.9));
+    z-index: 1;
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     max-width: 800px;
     padding: 20px;
 }
@@ -118,13 +122,14 @@ body {
 }
 
 .hero-sub {
+    margin-top: 20px;
     font-size: 18px;
     opacity: 0.9;
     line-height: 1.6;
 }
 
 .hero-buttons {
-    margin-top: 35px;
+    margin-top: 30px;
 }
 
 .btn-primary {
@@ -157,112 +162,224 @@ body {
 }
 
 .hero-trust {
-    margin-top: 35px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 20px;
     flex-wrap: wrap;
     font-size: 14px;
-    opacity: 0.85;
+    opacity: 0.8;
 }
+
+/* IMAGE REELS */
+
+.reel {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.reel-left {
+    left: clamp(30px, 6vw, 120px);
+}
+
+.reel-right {
+    right: clamp(30px, 6vw, 120px);
+}
+
+/* reel track */
+
+.reel-track {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: scrollReel 25s linear infinite;
+}
+
+/* opposite direction */
+
+.reel-right .reel-track {
+    animation-direction: reverse;
+}
+
+/* images */
+
+.reel img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.reel img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+
+/* fade edges */
+
+.reel::before,
+.reel::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.reel::before {
+    top: 0;
+    background: linear-gradient(#0c0c1d, transparent);
+}
+
+.reel::after {
+    bottom: 0;
+    background: linear-gradient(transparent, #0c0c1d);
+}
+
+
+/* scrolling animation */
+
+@keyframes scrollReel {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+
+}
+
+/* =============================================================================================== */
 
 /* TAGLINE */
 
-/* GLOBAL VISA SECTION */
+#tagline {
+    background: linear-gradient(190deg,
+        #40d6a9,
+        #501997,
+        #4a4aff,
+        #ee6262);
+}
 
 .tagline {
     padding: 120px 10%;
     text-align: center;
-    background:
-        radial-gradient(circle at 20% 20%, #2a2a7a, transparent 40%),
-        radial-gradient(circle at 80% 70%, #7a2aff, transparent 40%),
-        #0c0c1d;
     position: relative;
     overflow: hidden;
 }
 
+/* world map background */
+
 .tagline-container {
-    max-width: 800px;
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
     margin: auto;
 }
 
-.tagline h2 {
-    font-size: 38px;
-    margin-bottom: 20px;
-}
-
 .tagline-desc {
-    opacity: 0.8;
-    line-height: 1.7;
     margin-bottom: 40px;
+    opacity: 0.8;
 }
 
-/* country chips */
+/* country buttons */
 
-.country-chips {
+.country-selector {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
+    margin-bottom: 50px;
 }
 
-.country-chips span {
+.country-btn {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 10px 18px;
-    border-radius: 30px;
-    font-size: 14px;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-.country-chips span:hover {
+.country-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.country-btn.active {
     background: linear-gradient(45deg, #4a4aff, #9a4dff);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* subtle floating animation */
+/* display section */
 
-.country-chips span:nth-child(odd) {
-    animation: float1 6s ease-in-out infinite;
+.country-display {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.country-chips span:nth-child(even) {
-    animation: float2 7s ease-in-out infinite;
+/* image */
+
+.country-image img {
+    width: 320px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-@keyframes float1 {
+/* text */
 
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-6px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-
+.country-info {
+    max-width: 400px;
+    text-align: left;
 }
 
-@keyframes float2 {
-
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(5px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-
+.country-info h3 {
+    margin-bottom: 12px;
 }
 
+.country-info p {
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+/* COUNTRY TRANSITIONS */
+
+.country-image img,
+.country-info h3,
+.country-info p{
+transition:opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* hidden state */
+
+.fade-out{
+opacity:0;
+transform:translateY(20px);
+}
+
+/* visible state */
+
+.fade-in{
+opacity:1;
+transform:translateY(0);
+}
+
+/* =============================================================================================== */
 
 /* COUNTRIES */
 
@@ -396,6 +513,8 @@ body {
     background-image: url("https://images.unsplash.com/photo-1512453979798-5ea266f8880c");
 }
 
+/* =============================================================================================== */
+
 /* SERVICES */
 
 .services {
@@ -465,7 +584,8 @@ body {
     opacity: 0.8;
 }
 
-/* CTA */
+/* =============================================================================================== */
+
 /* CTA */
 
 .cta {
@@ -543,6 +663,8 @@ body {
     color: #111;
 }
 
+/* =============================================================================================== */
+
 /* FOOTER */
 
 .footer {
@@ -583,3 +705,5 @@ body {
 .rights {
     margin-top: 10px;
 }
+
+/* =============================================================================================== */

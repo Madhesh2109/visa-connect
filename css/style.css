@@ -83,6 +83,13 @@ background:linear-gradient(45deg,#4a4aff,#9a4dff);
 box-shadow:0 0 15px rgba(154,77,255,0.7);
 }
 
+/* FLAG ICONS */
+
+.nav-item .fi{
+margin-right:6px;
+font-size:14px;
+}
+
 /* =========================
    FOOTER
 ========================= */
