@@ -520,7 +520,12 @@ transform:translateY(0);
 .services {
     padding: 120px 10%;
     text-align: center;
-    background: linear-gradient(180deg, #111132, #0c0c1d);
+    /* background: linear-gradient(180deg, #111132, #0c0c1d); */
+    background: linear-gradient(190deg,
+        #da4619,
+        #b97f13,
+        #0d690d,
+        #95bd28);
 }
 
 .services h2 {
