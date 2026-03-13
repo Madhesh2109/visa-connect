@@ -13,21 +13,25 @@
 
 <body>
   <!-- NAVBAR -->
-
   <header class="navbar">
-    <div class="logo">Visa Connect Assis</div>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="australia.html">Australia</a></li>
-        <li><a href="uk.html">UK</a></li>
-        <li><a href="usa.html">USA</a></li>
-        <li><a href="eu.html">EU</a></li>
-        <li><a href="contact.html" class="contact-btn">Contact</a></li>
-      </ul>
+    <div class="brand">
+      <img src="images/logo.png" class="logo-img">
+      <span class="logo-text">VisaConnect</span>
+    </div>
+
+    <nav class="nav-pill">
+
+      <a class="nav-item active" href="index.html">🏠 Home</a>
+      <a class="nav-item" href="about.html">ℹ️ About</a>
+      <a class="nav-item" href="australia.html">🌏 Australia</a>
+      <a class="nav-item" href="uk.html">🇬🇧 UK</a>
+      <a class="nav-item" href="usa.html">🇺🇸 USA</a>
+      <a class="nav-item" href="eu.html">🇪🇺 EU</a>
+      <a class="nav-item" href="contact.html">✉️ Contact</a>
+
     </nav>
+
   </header>
 
   <!-- HERO SECTION -->
@@ -38,7 +42,7 @@
 
     <div class="hero-content">
 
-      <h1>Your Gateway to Global Travel</h1>
+      <h1 id="typing"></h1>
 
       <p class="hero-sub">
         Professional visa & passport assistance for individuals, families and
@@ -377,6 +381,7 @@
 
   </footer>
 
+  <script src="js/main.js"></script>
 </body>
 
 </html>
